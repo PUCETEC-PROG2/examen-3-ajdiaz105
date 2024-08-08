@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Examen 3{% endblock title %}
+{% block content %}
+<p class="p-2">Album</p>
+<div class="card-group">
+    {% for album in albums %}
+        <div class="card">
+            <img src="{{ album.picture.url }}" alt="">
+            <div class="card-body"></div>
+            <h4 class="card-title">{{ album }}</h4>
+            <p class="card-text">
+                Autor: {{ album.artista }} <br>
+                Nombre: {{ album.titulo }}
+            </p>
+            <ul style: "float:left;">
+                <a href="album/{{ album.id }}" class="btn btn-primary">
+                    <i class="fa-solid fa-hurricane"></i>
+                </a>
+                <a href="edit_album/{{ album.id }}" class="btn btn-primary">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+                <a href="delete_album/{{ album.id }}" class="btn btn-danger">
+                    <i class="fa-solid fa-trash-can"></i>
+                </a>
+            </ul>
+        </div>
+    {% endfor %}
+</div>
+
+
+<p class="p-2">Artistas</p>
+<div class="card-group">
+    {% for artista in artistas %}
+        <div class="card">
+            <div class="card-body"></div>
+            <h4 class="card-title">{{ artista }}</h4>
+            <p class="card-text">
+                Nombre: {{ artista.name }} <br>
+                Pais: {{ artista.country }}
+            </p>
+            <ul style: "float:left;">
+                <a href="artista/{{ artista.id }}" class="btn btn-primary">
+                    <i class="fa-solid fa-hurricane"></i>
+                </a>
+                <a href="edit_artista/{{ artista.id }}" class="btn btn-primary">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+                <a href="delete_artista/{{ artista.id }}" class="btn btn-danger">
+                    <i class="fa-solid fa-trash-can"></i>
+                </a>
+            </ul>
+        </div>
+    {% endfor %}
+</div>
+
+
+{% endblock content %}
+
